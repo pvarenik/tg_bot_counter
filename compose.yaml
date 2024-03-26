@@ -1,0 +1,14 @@
+services:
+  tg_bot_counter:
+    image: python:3.10.12
+    container_name: tg_bot_counter
+    command: sh -c "pip install -r requirements.txt && python -u bot.py"
+    working_dir: /app
+    volumes:
+      - ./:/app
+    networks:
+      - tg_bot_network
+
+networks:
+  tg_bot_network:
+    name: tg_bot_network
